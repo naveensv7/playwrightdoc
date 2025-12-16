@@ -19,9 +19,6 @@ jobs:
       - name: Create Allure results directory
         run: mkdir -p reports/allure-results
 
-      - name: Delete any files if exists
-        run: rm -rf allure-results reports/allure-results reports/allure-report
-
       - name: Check if any files
         run: |
           ls -d allure-results reports/allure-results
