@@ -25,6 +25,7 @@ jobs:
       - name: Check if any files
         run: |
           ls -d allure-results reports/allure-results
+        continue-on-error: true
 
       - name: Run Tests
         run: npm run start
