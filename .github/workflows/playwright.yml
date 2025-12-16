@@ -15,6 +15,10 @@ jobs:
         run: npm install
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
+      - name: Create Allure results directory
+        run: mkdir -p reports/allure-results
+
       - name: Run Tests
         run: npm run start
         continue-on-error: true
