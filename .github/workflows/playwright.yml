@@ -16,7 +16,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Tests
-        run: npm run test
+        run: npm run start
         continue-on-error: true
 
       - name: Generate Allure reports
