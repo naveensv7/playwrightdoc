@@ -19,6 +19,13 @@ jobs:
       - name: Create Allure results directory
         run: mkdir -p reports/allure-results
 
+      - name: Delete any files if exists
+        run: rm -rf allure-results reports/allure-results reports/allure-report
+
+      - name: Check if any files
+        run: |
+          ls -d allure-results reports/allure-results
+
       - name: Run Tests
         run: npm run start
         continue-on-error: true
@@ -36,3 +43,8 @@ jobs:
         with:
           name: allure-report
           path: reports/allure-report
+      - name: Deploy Allure report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: reports/allure-report
